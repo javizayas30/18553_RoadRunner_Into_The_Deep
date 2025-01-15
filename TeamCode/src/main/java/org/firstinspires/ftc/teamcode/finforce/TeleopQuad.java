@@ -87,11 +87,11 @@ public class TeleopQuad extends OpMode {
         }
 
         // Right Arm (Slider) Code
-        if (gamepad1.y) {// Arm Up
+        if (gamepad2.y) {// Arm Up
             robot.rightArm.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
             robot.rightArm.setPower(0.8);
         }
-        else if (gamepad1.a) { // Arm Down
+        else if (gamepad2.a) { // Arm Down
             robot.rightArm.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
             robot.rightArm.setPower(-0.8);
         }

@@ -61,13 +61,13 @@ public final class MecanumDrive {
         public RevHubOrientationOnRobot.LogoFacingDirection logoFacingDirection =
                 RevHubOrientationOnRobot.LogoFacingDirection.UP;
         public RevHubOrientationOnRobot.UsbFacingDirection usbFacingDirection =
-                RevHubOrientationOnRobot.UsbFacingDirection.FORWARD;
+                RevHubOrientationOnRobot.UsbFacingDirection.LEFT;
         //TODO End Step 2
 
         // drive model parameters
         //TODO Step 5 Set value of inPerTick after running ForwardPushTest
         //TODO Step 14 Make value of inPerTick accurate after running LocalizationTest
-        public double inPerTick = 1;
+        public double inPerTick = 0.02184428147;
 
         //TODO Step 6 (Only for DriveEncoder Localizer) Set value of lateralInPerTick after running LateralPushTest
         //TODO Step 8 (Only for DeadWheel Localizer) Set value of lateralInPerTick after running LateralRampLogger
@@ -157,8 +157,8 @@ public final class MecanumDrive {
 
             //TODO Step 4.2 Run MecanumDirectionDebugger Tuning OpMode to set motor direction correctly
             //Uncomment the lines for which the motorDirection need to be reversed to ensure all motors run forward in test
-            //leftFront.setDirection(DcMotorEx.Direction.REVERSE);
-            //leftBack.setDirection(DcMotorEx.Direction.REVERSE);
+            leftFront.setDirection(DcMotorEx.Direction.REVERSE);
+            leftBack.setDirection(DcMotorEx.Direction.REVERSE);
             //rightBack.setDirection(DcMotorEx.Direction.REVERSE);
             //rightFront.setDirection(DcMotorEx.Direction.REVERSE);
             //TODO End Step 4.2
@@ -240,10 +240,10 @@ public final class MecanumDrive {
         //TODO Step 1 Drive Classes : get basic hardware configured. Update motor names to what is used in robot configuration
         // TODO: make sure your config has motors with these names (or change them)
         //   see https://ftc-docs.firstinspires.org/en/latest/hardware_and_software_configuration/configuring/index.html
-        leftFront = hardwareMap.get(DcMotorEx.class, "leftFront");
-        leftBack = hardwareMap.get(DcMotorEx.class, "leftBack");
-        rightBack = hardwareMap.get(DcMotorEx.class, "rightBack");
-        rightFront = hardwareMap.get(DcMotorEx.class, "rightFront");
+        leftFront = hardwareMap.get(DcMotorEx.class, "leftfront");
+        leftBack = hardwareMap.get(DcMotorEx.class, "leftrear");
+        rightBack = hardwareMap.get(DcMotorEx.class, "rightrear");
+        rightFront = hardwareMap.get(DcMotorEx.class, "rightfront");
 
         //Names for 3 dead wheel localizer, where the odometry modules are connected to the encoder ports of the motors. Recommend Use Port 0 and 3 on Robot controller and Expansion Hub
         //leftFront = hardwareMap.get(DcMotorEx.class, "leftFront_par0");
@@ -259,8 +259,8 @@ public final class MecanumDrive {
 
         //TODO Step 4.1 Run MecanumDirectionDebugger Tuning OpMode to set motor direction correctly
         //Uncomment the lines for which the motorDirection need to be reversed to ensure all motors run forward in test
-        //leftFront.setDirection(DcMotorEx.Direction.REVERSE);
-        //leftBack.setDirection(DcMotorEx.Direction.REVERSE);
+        leftFront.setDirection(DcMotorEx.Direction.REVERSE);
+        leftBack.setDirection(DcMotorEx.Direction.REVERSE);
         //rightFront.setDirection(DcMotorEx.Direction.REVERSE);
         //rightBack.setDirection(DcMotorEx.Direction.REVERSE);
         //TODO Make the same update in DriveLocalizer() function. Search for Step 4.2
